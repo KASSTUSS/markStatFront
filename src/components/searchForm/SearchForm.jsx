@@ -28,7 +28,7 @@ const SearchForm = (props) => {
                 setclassContent(classes.content)
             }, 350);
             
-            fetch('https://markstat-production-63fb.up.railway.app/api?surname=' + surname)
+            fetch('https://markstat-production-63fb.up.railway.app/api?surname=' + surname, { mode: 'no-cors'})
                 .then( res => res.json() )
                 .then( res => {
                     setclassContent(classes.content + ' ' + classes.hidden)
