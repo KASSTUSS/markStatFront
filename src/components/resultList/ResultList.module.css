@@ -1,0 +1,261 @@
+.container {
+    height: 100%;
+
+    background-color: #3D3E52;
+    padding: 25px;
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.item {
+    list-style: none;
+
+    width: 500px;
+    height: 100px;
+
+    background-color: #51536C;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.25);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 15px;
+
+    user-select: none;
+
+    transition: .25s;
+
+}
+.item:hover {
+    cursor: pointer;
+    
+    box-shadow: 5px 5px 10px 0px rgba(34, 60, 80, 0.45);
+
+    background-color: #6D73D5;
+
+    transition: .3s;
+}
+.item svg {
+    fill: white;
+    transform: scale(1.5);
+    margin-left: 15px;
+}
+
+.info {
+    display: flex;
+    height: 46px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.group_info {
+    color: #bdbdcc;
+
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+.group_info span {
+    font-size: 16px;
+    color:#D7D7E8;
+}
+
+.item_fullname {
+    display: flex;
+    gap: 5px;
+}
+.item_fullname span {
+    color: white;
+
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+.item_active {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    list-style: none;
+
+    width: 500px;
+    height: 100px;
+
+    background-color: #51536C;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.25);
+
+    border-radius: 10px;
+    will-change: background-color, width, height, border-radius, top;
+
+    user-select: none;
+
+    transition: .25s;
+
+}
+.active {
+    display: block;
+}
+
+.header_active {
+    position: absolute;
+    display: none;
+
+    z-index: 99;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 125px;
+
+    background-color: #3C3D49;
+    opacity: 0;
+
+    transition: .25s;
+}
+.active_header {
+    display: flex;
+}
+
+.header_container {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    will-change: opacity;
+
+    transition: .2s;
+}
+
+.header_fullname {
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 12px 17px 12px 17px;
+
+    gap: 35px;
+
+    margin-left: 30px;
+    border-radius: 15px;
+    
+    transition: .2s;
+}
+.header_fullname svg {
+    fill: white;
+    transition: .2s;
+}
+.header_fullname div {
+    margin-left: -25px;
+
+    color: white;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+    gap: 5px;
+
+    user-select: none;
+
+    transition: .2s;
+}
+
+.header_fullname:hover {
+    cursor: pointer;
+    gap: 25px;
+    box-shadow: 0px 0px 12px 2px rgba(34, 60, 70, 0.85);
+
+    transition: .2s;
+}
+.header_fullname:hover div {
+    
+    margin-left: -15px;
+    transition: .2s;
+}
+.header_fullname:hover svg:first-child {
+    transform: scale(1.15);
+
+    transition: .2s;
+}
+
+.header_fullname:active {
+    box-shadow: 0px 0px 15px 7px rgba(34, 60, 70, 0.85);
+
+    transition: .2s;
+}
+
+.header_person_info_container {
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    font-family: sans-serif;
+}
+
+.person_info_group {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+.person_info_group div:last-child {
+    font-weight: 600;
+    color:white;
+
+    padding: 4px 6px 4px 6px;
+    background-color: #6D73D5;
+    display: block;
+    border-radius: 4px;
+}
+.person_info_label {
+    color: #bdbdcc;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.chart_container {
+    width: 350px;
+    height: 350px;
+}
+
+.itemactive_container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    transition: .15s;
+}

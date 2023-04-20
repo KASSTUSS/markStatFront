@@ -1,0 +1,23 @@
+.UIInput {
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+
+    border: 1px solid;
+    border-color: white;
+
+    color: black;
+    font-size: 23px;
+
+    padding: 5px 5px 5px 15px;
+
+    transition: border-color .15s;
+}
+.UIInput:hover {
+    border-color: #9698C5;
+    transition: border-color .15s;
+}
+.UIInput:focus {
+    border-color: #6D73D5;
+    transition: border-color .15s;
+}
