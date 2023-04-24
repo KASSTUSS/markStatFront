@@ -28,7 +28,7 @@ const SearchForm = (props) => {
                 setclassContent(classes.content)
             }, 350);
             
-            fetch('http://localhost:3001/api?surname=' + surname)
+            fetch('http://markstat-production-63fb.up.railway.app/api?surname=' + surname)
                 .then( res => res.json() )
                 .then( res => {
                     setclassContent(classes.content + ' ' + classes.hidden)
