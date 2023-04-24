@@ -182,6 +182,7 @@
     transition: .2s;
 }
 
+
 .header_fullname:hover {
     cursor: pointer;
     gap: 25px;
@@ -250,7 +251,7 @@
     display: flex;
 
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     width: 100%;
     height: 100%;
@@ -258,4 +259,89 @@
     opacity: 0;
 
     transition: .15s;
+}
+
+@media screen and (max-width: 525px) {
+    .item,
+    .item_active {
+        width: 90vw;
+        height: 60px;
+    }
+    .item {
+        gap: 8px;
+    }
+    .item svg {
+        fill: white;
+        transform: scale(1);
+        margin-left: 10px;
+    }
+    .info {
+        height: 35px;
+    }
+    .group_info {
+        font-size: 12px;
+    }
+    .group_info span {
+        font-size: 13px;
+    }
+    
+    .item_fullname {
+        gap: 4px;
+    }
+    .item_fullname span {
+        font-size: 15px;
+    }
+
+    .header_fullname div {
+        margin-left: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .header_fullname div span {
+        font-size: 13px;
+
+    }
+    .header_fullname {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .header_fullname div {
+        font-size: 18px;
+    }
+    .header_fullname svg {
+        transform: scale(0.75);
+    }
+    .person_info_label {
+        font-size: 10px;
+    }
+    .person_info_group {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .header_fullname div {
+        font-size: 18px;
+    }
+    .header_fullname svg {
+        transform: scale(0.75);
+    }
+    .person_info_label {
+        font-size: 10px;
+    }
+    .person_info_group {
+        word-wrap: normal;
+        text-align: center;
+    }
+    .header_person_info_container {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .header_person_info_container {
+        display: none;
+    }
 }

@@ -28,7 +28,7 @@ const SearchForm = (props) => {
                 setclassContent(classes.content)
             }, 350);
             
-            fetch('https://markstat-production-63fb.up.railway.app/api?surname=' + surname)
+            fetch('http://localhost:3001/api?surname=' + surname)
                 .then( res => res.json() )
                 .then( res => {
                     setclassContent(classes.content + ' ' + classes.hidden)
@@ -48,13 +48,20 @@ const SearchForm = (props) => {
     return (
         <div className={classes.container}>
             <div className={classForm}>
-                <UIInput 
-                    type='text' 
-                    placeholder='Введите фамилию...' 
-                    value={surname}
-                    onChange={e => setSurname(e.target.value)}
-                />
-                <UIButton onClick={startSearch}>Поиск</UIButton>
+                <div>
+                    <UIInput 
+                        type='text' 
+                        placeholder='Введите фамилию...' 
+                        value={surname}
+                        onChange={e => setSurname(e.target.value)}
+                    />
+                    <UIButton 
+                        onClick={startSearch}
+                        className={classes.searchButton}
+                    >
+                        Поиск
+                    </UIButton>
+                </div>
             </div>
             <div className={classContent}>
                 {

@@ -14,6 +14,12 @@ import { Chart as ChartJS,
 import { Pie, Line, Bar } from 'react-chartjs-2';
 import classes from './ResultList.module.css';
 
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
 ChartJS.register(
     ArcElement, 
     BarElement,
@@ -260,6 +266,45 @@ const ResultList = ({data, ...props}) => {
         </li>
     );
 
+    function TabPanel(props) {
+        const { children, value, index, ...other } = props;
+      
+        return (
+          <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+          >
+            {value === index && (
+              <Box sx={{ p: 3 }}>
+                <Typography>{children}</Typography>
+              </Box>
+            )}
+          </div>
+        );
+      }
+      
+      TabPanel.propTypes = {
+        children: PropTypes.node,
+        index: PropTypes.number.isRequired,
+        value: PropTypes.number.isRequired,
+      };
+      
+      function a11yProps(index) {
+        return {
+          id: `simple-tab-${index}`,
+          'aria-controls': `simple-tabpanel-${index}`,
+        };
+      }
+
+
+      const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
     return (
         <ul className={classes.container}>
             {
@@ -267,21 +312,78 @@ const ResultList = ({data, ...props}) => {
             }
             <div className={classItemActive}>
                 <div className={classes.itemactive_container}>
-                    <div className={classes.chart_container}>
-                        <Pie
-                            data={dataForChart}
-                        />
-                    </div>
-                    <div className={classes.chart_container}>
-                        <Line
-                            data={dataForChartLine}
-                        />
-                    </div>
-                    <div className={classes.chart_container}>
-                        <Bar
-                            data={dataForChartLineProgress}
-                        />
-                    </div>
+                    
+                    <Box sx={{ width: '100%' }}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}
+                            style={{
+                                width: '100%',
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Tabs 
+                                value={value} 
+                                onChange={handleChange} 
+                                aria-label="basic tabs example" 
+                                textColor="secondary"
+                                indicatorColor="secondary"
+                                scrollButtons="auto"
+                                centered
+                            >
+                            <Tab label="Все отметки" {...a11yProps(0)} />
+                            <Tab label="Средний балл" {...a11yProps(1)} />
+                            <Tab label="Динамика среднего балла" {...a11yProps(2)} />
+                            </Tabs>
+                        </Box>
+                        <TabPanel value={value} index={0}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}    
+                        >
+                            <div className={classes.chart_container}>
+                                <Pie
+                                    data={dataForChart}
+                                />
+                            </div>
+                        </TabPanel>
+                        <TabPanel value={value} index={1}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}    
+                        >
+                            <div className={classes.chart_container}>
+                                <Line
+                                    data={dataForChartLine}
+                                />
+                            </div>
+                        </TabPanel>
+                        <TabPanel value={value} index={2}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}    
+                        >
+                            <div className={classes.chart_container}>
+                                <Bar
+                                    data={dataForChartLineProgress}
+                                />
+                            </div>
+                        </TabPanel>
+                    </Box>
+                    
+                    
+                    
                 </div>
             </div>
             <div className={classHeaderActive}>
@@ -310,5 +412,7 @@ const ResultList = ({data, ...props}) => {
         </ul>
     )
 };
+
+
 
 export default ResultList;
