@@ -56,7 +56,7 @@ const SearchForm = (props) => {
                         onChange={e => setSurname(e.target.value)}
                         onKeyDown={(e) => {
                             if (e.keyCode === 13) startSearch
-                        }
+                        }}
                     />
                     <UIButton 
                         onClick={startSearch}
