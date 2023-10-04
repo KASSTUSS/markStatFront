@@ -34,7 +34,7 @@ const SearchForm = (props) => {
                     setclassContent(classes.content + ' ' + classes.hidden)
                     setTimeout(function() {
                         setLoader(false);
-                        setData(res.message);
+                        setData(res.data.message);
                         console.log(res.message);
                         setclassContent(classes.content);
                     }, 300);
